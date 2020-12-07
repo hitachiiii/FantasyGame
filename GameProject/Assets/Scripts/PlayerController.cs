@@ -11,11 +11,13 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero;
     private Animator anim;
+    private BoxCollider[] swordColliders;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        swordColliders = GetComponentsInChildren<BoxCollider>();
     }
 
     void Update()
@@ -65,6 +67,21 @@ public class PlayerController : MonoBehaviour
                 Quaternion rotation = Quaternion.LookRotation(targetPosition - transform.position);
                 transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10f);
             }
+        }
+    }
+    public void BeginAttack()
+    {
+        foreach (var weapon in swordColliders)
+        {
+            weapon.enabled = true;
+        }
+    }
+
+    public void EndAttack()
+    {
+        foreach (var weapon in swordColliders)
+        {
+            weapon.enabled = false;
         }
     }
 }

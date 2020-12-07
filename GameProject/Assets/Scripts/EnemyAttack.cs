@@ -11,9 +11,11 @@ public class EnemyAttack : MonoBehaviour
     private GameObject player;
     private bool playerInRange; //keep track of whether we are with in the range that we specified
     private BoxCollider[] weaponColliders;
+    private EnemyHealth enemyHealth;
 
     void Start()
     {
+        enemyHealth = GetComponent<EnemyHealth>();
         weaponColliders = GetComponentsInChildren<BoxCollider> ();
         player = GameManager.instance.Player;
         anim = GetComponent<Animator> ();
@@ -23,7 +25,7 @@ public class EnemyAttack : MonoBehaviour
     
     void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position) < range)
+        if(Vector3.Distance(transform.position, player.transform.position) < range && enemyHealth.IsAlive)
         {
             playerInRange = true;
         }
