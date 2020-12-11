@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     private Animator anim;
     private int currentHealth;
     private AudioSource audio;
+    private ParticleSystem blood;
 
     void Awake(){
         Assert.IsNotNull(healthSlider);
@@ -25,8 +26,8 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         characterController = GetComponent<CharacterController> ();
         currentHealth = startingHealth;
-
         audio = GetComponent<AudioSource>();
+        blood = GetComponentInChildren<ParticleSystem>();
     }
 
     
@@ -56,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth -= 10;
             healthSlider.value = currentHealth;
             audio.PlayOneShot(audio.clip);
+            blood.Play ();
         }
         if(currentHealth <= 0)
         {
@@ -68,5 +70,6 @@ public class PlayerHealth : MonoBehaviour
         anim.SetTrigger("HeroDie");
         characterController.enabled = false;
         audio.PlayOneShot(audio.clip);
+        blood.Play();
     }
 }
