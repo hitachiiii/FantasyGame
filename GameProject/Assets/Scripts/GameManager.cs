@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject tanker;
     [SerializeField] GameObject ranger;
     [SerializeField] GameObject soldier;
+    [SerializeField] GameObject arrow;
     [SerializeField] Text levelText;
 
     private bool gameOver = false;
@@ -43,6 +44,11 @@ public class GameManager : MonoBehaviour
     public GameObject Player
     {
         get {return player; }
+    }
+
+    public  GameObject Arrow
+    {
+        get {return arrow; }
     }
 
     void Awake()
@@ -120,7 +126,7 @@ public class GameManager : MonoBehaviour
 
                 yield return new WaitForSeconds(3f);
                 currentLevel++;
-                levelText.text = "Level" + currentLevel;
+                levelText.text = "Level " + currentLevel;
             }
         }
 
