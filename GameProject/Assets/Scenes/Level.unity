@@ -3354,6 +3354,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 0, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &234621350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4031128411911977491, guid: 21527911c1bec4550bfca14ad4fb6b98, type: 3}
+  m_PrefabInstance: {fileID: 4264935507352868276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &234621351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234621350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e02de4fe7ca54b11b8975edc7bd91ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  timeBetweenAttacks: 1
 --- !u!1 &241516155
 GameObject:
   m_ObjectHideFlags: 0
@@ -24978,6 +24997,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 543450652013131755}
     m_Modifications:
+    - target: {fileID: 438853932760326332, guid: bce14a1ebf4464c1d86836cc49600e0d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 438853932760326333, guid: bce14a1ebf4464c1d86836cc49600e0d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -84430,7 +84453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4031128411911977491, guid: 21527911c1bec4550bfca14ad4fb6b98, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4264935506786273103, guid: 21527911c1bec4550bfca14ad4fb6b98, type: 3}
       propertyPath: player
@@ -84480,7 +84503,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5059987622396420403, guid: 21527911c1bec4550bfca14ad4fb6b98, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4264935506786273098, guid: 21527911c1bec4550bfca14ad4fb6b98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21527911c1bec4550bfca14ad4fb6b98, type: 3}
 --- !u!23 &4265487608068705001
 MeshRenderer:
@@ -89537,7 +89565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5526846058566315357, guid: 7b187fceb94c24fe783b5c08852f9503, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b187fceb94c24fe783b5c08852f9503, type: 3}
