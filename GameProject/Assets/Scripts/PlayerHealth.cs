@@ -17,6 +17,16 @@ public class PlayerHealth : MonoBehaviour
     private AudioSource audio;
     private ParticleSystem blood;
 
+    public int CurrentHealth{
+        get {return currentHealth; }
+        set {
+            if (value<0)
+                currentHealth = 0;
+            else
+                currentHealth = value;
+        }
+    }
+
     void Awake(){
         Assert.IsNotNull(healthSlider);
     }
@@ -71,5 +81,14 @@ public class PlayerHealth : MonoBehaviour
         characterController.enabled = false;
         audio.PlayOneShot(audio.clip);
         blood.Play();
+    }
+
+    public void PowerUpHealth(){
+        if (currentHealth <= 70){
+            CurrentHealth += 30;
+        }else if (currentHealth < startingHealth){
+            CurrentHealth = startingHealth;
+        }
+        healthSlider.value = currentHealth;
     }
 }
