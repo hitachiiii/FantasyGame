@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
+        GameManager.instance.RegisterEnemy(this);
         rigidBody = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         nav = GetComponent<NavMeshAgent>();
@@ -78,6 +79,7 @@ public class EnemyHealth : MonoBehaviour
 
     void KillEnemy()
     {
+        GameManager.instance.KilledEnemy(this);
         capsuleCollider.enabled = false;
         nav.enabled = false;
         anim.SetTrigger("EnemyDie");

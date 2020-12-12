@@ -6,19 +6,14 @@ using UnityEngine.Assertions;
 
 public class EnemyMove : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    private Transform player;
     private NavMeshAgent nav;
     private Animator anim;
     private EnemyHealth enemyHealth;
 
-
-    void Awake()
-    {
-        Assert.IsNotNull(player);
-    }
-
     void Start()
     {
+        player = GameManager.instance.Player.transform;
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent<Animator>();
         nav = GetComponent<NavMeshAgent>();
