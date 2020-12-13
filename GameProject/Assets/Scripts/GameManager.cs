@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject healthPowerUp;
     [SerializeField] GameObject speedPowerUp;
     [SerializeField] Text levelText;
+    [SerializeField] Text endGameText;
+    [SerializeField] int finalLevel = 20;
+
+
     [SerializeField] int maxPowerUps = 4;
     
 
@@ -75,11 +80,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+        
     }
     
     void Start()
     {
+        endGameText.GetComponent<Text>().enabled = false;
         StartCoroutine(spawn());
         StartCoroutine(powerUpSpawn());
         currentLevel = 1;
@@ -103,6 +109,7 @@ public class GameManager : MonoBehaviour
         else
         {
             gameOver = true;
+            StartCoroutine(endGame("Defeat"));
         }
     }
 
@@ -136,7 +143,7 @@ public class GameManager : MonoBehaviour
             //if we have killed the same number of enemies as the current level, clear out the enemies and
             //killed enemies arrays, increment the current level by I, and start over
 
-            if(killedEnemies.Count == currentLevel)
+            if(killedEnemies.Count == currentLevel && currentLevel != finalLevel)
             {
                 enemies.Clear();
                 killedEnemies.Clear();
@@ -144,6 +151,9 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(3f);
                 currentLevel++;
                 levelText.text = "Level " + currentLevel;
+            }
+            if (killedEnemies.Count == finalLevel){
+                StartCoroutine(endGame("Victory!"));
             }
         }
 
@@ -168,5 +178,13 @@ public class GameManager : MonoBehaviour
         }
         yield return null;
         StartCoroutine(powerUpSpawn());
+    }
+
+    IEnumerator endGame(string outcome){
+        endGameText.text = outcome;
+        endGameText.GetComponent<Text>().enabled = true;
+        yield return new WaitForSeconds (3f);
+        SceneManager.LoadScene("GameMenu");
+
     }
 }

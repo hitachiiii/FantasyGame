@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int startingHealth = 20;
+    [SerializeField] private int startingHealth = 40;
     [SerializeField] private float timeSinceLastHit = 0.5f;
     [SerializeField] private float dissapearSpeed = 2f;
 

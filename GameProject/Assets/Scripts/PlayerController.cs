@@ -98,5 +98,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds (10f);
 
         moveSpeed = 6;
+        
+        
     }
 }

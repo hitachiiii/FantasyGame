@@ -735,6 +735,7 @@ RectTransform:
   m_Children:
   - {fileID: 874380988}
   - {fileID: 687673674}
+  - {fileID: 1846378964}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1464,6 +1465,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1846378963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846378964}
+  - component: {fileID: 1846378966}
+  - component: {fileID: 1846378965}
+  m_Layer: 5
+  m_Name: endGameText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1846378964
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846378963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 754084056}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.0000035762787, y: -117.9}
+  m_SizeDelta: {x: 457.8412, y: 160.59885}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1846378965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846378963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.73794055, g: 0.9716981, b: 0.7583229, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 255f5d0751595ae48a5aaf36d5fc433f, type: 3}
+    m_FontSize: 78
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 78
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Victory!
+--- !u!222 &1846378966
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846378963}
+  m_CullTransparentMesh: 0
 --- !u!1 &1856283447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,6 +1593,8 @@ MonoBehaviour:
   healthPowerUp: {fileID: 7951847719932680177, guid: b7f25286dfd524009bf341ece76715c0, type: 3}
   speedPowerUp: {fileID: 4042982922530059663, guid: f16e5525ecd9d49cda45f1c2e9ab5e57, type: 3}
   levelText: {fileID: 687673676}
+  endGameText: {fileID: 1846378965}
+  finalLevel: 20
   maxPowerUps: 4
 --- !u!4 &1856283449
 Transform:
@@ -1569,6 +1651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArrowPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 29697573782204104, guid: b443e5935fc5049749bd2f001e3082ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 29697573782204106, guid: b443e5935fc5049749bd2f001e3082ef, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1579,7 +1665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 29697573782204106, guid: b443e5935fc5049749bd2f001e3082ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1846409
+      value: -1.61
       objectReference: {fileID: 0}
     - target: {fileID: 29697573782204106, guid: b443e5935fc5049749bd2f001e3082ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1921,6 +2007,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8793486841799691230, guid: 4571eb3a456e24e80a5121a6c5e3cae0, type: 3}
+      propertyPath: startingHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 9043796276607953961, guid: 4571eb3a456e24e80a5121a6c5e3cae0, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1986,6 +2076,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1696009200}
+    - target: {fileID: 8811625954093758870, guid: dc17829ed8f6b4522ba5f9102e8e20e7, type: 3}
+      propertyPath: startingHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9062252230777119899, guid: dc17829ed8f6b4522ba5f9102e8e20e7, type: 3}
       propertyPath: m_RootOrder
       value: 3
