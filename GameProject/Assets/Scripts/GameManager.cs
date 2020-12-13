@@ -11,17 +11,26 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject player;
     [SerializeField] GameObject[] spawnPoints;
+    [SerializeField] GameObject[] powerUpSpawns;
     [SerializeField] GameObject tanker;
     [SerializeField] GameObject ranger;
     [SerializeField] GameObject soldier;
     [SerializeField] GameObject arrow;
+    [SerializeField] GameObject healthPowerUp;
+    [SerializeField] GameObject speedPowerUp;
     [SerializeField] Text levelText;
+    [SerializeField] int maxPowerUps = 4;
+    
 
     private bool gameOver = false;
     private int currentLevel;
     private float generatedSpawnTime = 1;
     private float currentSpawnTime = 0;
+    private float powerUpSpawnTime = 5;
+    private float currentPowerUpSpawnTime = 0;
     private GameObject newEnemy;
+    private int powerups = 0;
+    private GameObject newPowerup;
 
     private List<EnemyHealth> enemies = new List<EnemyHealth>();
     private List<EnemyHealth> killedEnemies = new List<EnemyHealth>();
@@ -34,6 +43,10 @@ public class GameManager : MonoBehaviour
     public void KilledEnemy(EnemyHealth enemy)
     {
         killedEnemies.Add(enemy);
+    }
+
+    public void RegisterPowerUp(){
+        powerups++;
     }
 
     public bool GameOver
@@ -68,6 +81,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawn());
+        StartCoroutine(powerUpSpawn());
         currentLevel = 1;
     }
 
@@ -75,7 +89,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentSpawnTime += Time.deltaTime;
+        currentPowerUpSpawnTime += Time.deltaTime;
     }
+
+
 
     public void PlayerHit(int currentHP)
     {
@@ -132,5 +149,24 @@ public class GameManager : MonoBehaviour
 
         yield return null;
         StartCoroutine(spawn());
+    }
+
+    IEnumerator powerUpSpawn(){
+        if(currentPowerUpSpawnTime > powerUpSpawnTime){
+            currentPowerUpSpawnTime = 0;
+            if(powerups < maxPowerUps){
+                    int randomNumber = Random.Range(0,powerUpSpawns.Length - 1);
+                    GameObject spawnLocation = powerUpSpawns [randomNumber];
+                    int randomPowerUp = Random.Range (0,2);
+                    if(randomPowerUp == 0){
+                        newPowerup = Instantiate(healthPowerUp) as GameObject;
+                    }else if (randomPowerUp == 1){
+                        newPowerup = Instantiate(speedPowerUp) as GameObject;
+                    }
+                    newPowerup.transform.position = spawnLocation.transform.position;
+            }
+        }
+        yield return null;
+        StartCoroutine(powerUpSpawn());
     }
 }

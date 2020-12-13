@@ -14,6 +14,7 @@ public class HealthPowerUp : MonoBehaviour
     {
         player = GameManager.instance.Player;
         playerHealth = player.GetComponent<PlayerHealth> ();
+        GameManager.instance.RegisterPowerUp();
             
         }
 
