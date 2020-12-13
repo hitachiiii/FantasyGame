@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private int currentLevel;
     private float generatedSpawnTime = 1;
     private float currentSpawnTime = 0;
-    private float powerUpSpawnTime = 5;
+    private float powerUpSpawnTime = 20;
     private float currentPowerUpSpawnTime = 0;
     private GameObject newEnemy;
     private int powerups = 0;

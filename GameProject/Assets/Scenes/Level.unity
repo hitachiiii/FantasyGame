@@ -30011,7 +30011,7 @@ MonoBehaviour:
   soldier: {fileID: 5526846058566315357, guid: 7b187fceb94c24fe783b5c08852f9503, type: 3}
   arrow: {fileID: 1989258158}
   healthPowerUp: {fileID: 7951847719932680177, guid: b7f25286dfd524009bf341ece76715c0, type: 3}
-  speedPowerUp: {fileID: 7951847719932680177, guid: b7f25286dfd524009bf341ece76715c0, type: 3}
+  speedPowerUp: {fileID: 4042982922530059663, guid: f16e5525ecd9d49cda45f1c2e9ab5e57, type: 3}
   levelText: {fileID: 687673676}
   maxPowerUps: 4
 --- !u!4 &1856283449
@@ -84692,7 +84692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4031128411911977491, guid: 21527911c1bec4550bfca14ad4fb6b98, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4375987294147911849, guid: 21527911c1bec4550bfca14ad4fb6b98, type: 3}
       propertyPath: m_RootOrder

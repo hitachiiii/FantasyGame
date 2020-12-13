@@ -12,9 +12,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 currentLookTarget = Vector3.zero;
     private Animator anim;
     private BoxCollider[] swordColliders;
+    private GameManager fireTrail;
+    private ParticleSystem fireTrailParticles;
 
     void Start()
     {
+        
         characterController = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         swordColliders = GetComponentsInChildren<BoxCollider>();
@@ -83,5 +86,17 @@ public class PlayerController : MonoBehaviour
         {
             weapon.enabled = false;
         }
+    }
+
+    public void SpeedPowerUp(){
+        StartCoroutine (fireTrailRoutine());
+
+    }
+    IEnumerator fireTrailRoutine(){
+
+        moveSpeed = 10;
+        yield return new WaitForSeconds (10f);
+
+        moveSpeed = 6;
     }
 }
